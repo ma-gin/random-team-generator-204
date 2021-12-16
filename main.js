@@ -3,10 +3,13 @@ const waitingList = []
 const listContainer = document.createElement("div")
 const namesList = document.createElement("ul")
 const inputContainer = document.getElementById("input-container")
+const bigRow = document.getElementById("sz")
+const newDiv = document.createElement("div")
 
 // ******** DECLARATION OF FUNCTIONS ********
 
 const addName = () => {
+    newDiv.classList.remove("hide")
     const inputName = document.getElementById("name-input").value
     waitingList.push(inputName)
     listContainer.classList.remove("hide")
@@ -17,31 +20,48 @@ const addName = () => {
     namesList.appendChild(listItem)
 }
 
-const createList = () => {
+const createOneList = () => {
+    // console.log(listLength)
     const teamList = document.createElement("ul")
-    const runLoop = waitingList.length
-    // console.log(waitingList)
+    const teamAmount = document.getElementById("number-input").value
+    console.log(teamAmount)
+    const runLoop = Math.floor(4 / teamAmount)// original array length hardcorded - problem with scope
+    console.log(runLoop)
     for (let i = 0; i < runLoop; i++) {
         // console.log(i)
         const randomIndex = Math.floor(Math.random() * waitingList.length - 1)
         // console.log(waitingList.length)
         // console.log(randomIndex)
-        const nameToAdd = waitingList.splice(randomIndex, 1)
+        const nameToAdd = waitingList.splice(randomIndex, 1)// change splice to method that wont mutate original array
         // console.log(nameToAdd)
-    }
-    
+        console.log(nameToAdd[0])
+        const newItem = document.createElement("li")
+        newItem.innerText = nameToAdd
+        teamList.appendChild(newItem)
+    } 
+    const newerDiv = document.createElement("div")
+    newerDiv.appendChild(teamList)
+    inputContainer.appendChild(newerDiv)
 }
 
 const createWaitingList = () => {
-    listContainer.appendChild(namesList)
-    listContainer.classList.add("waiting-list")
+    newDiv.appendChild(namesList)
+    newDiv.classList.add("hide")
+    newDiv.classList.add("col")
+    newDiv.classList.add("col-md-6")
+    bigRow.appendChild(newDiv)
+    namesList.classList.add("waiting-list")
+
 }
 
 const generate = () => {
-    inputContainer.classList.add("hide")
+    const listLength = waitingList.length
     const teamAmount = document.getElementById("number-input").value
-    console.log(teamAmount)
-    createList()
+    for (let i = 0; i < teamAmount; i++){
+        createOneList()
+
+    }
+    // createList()
 
     // if (teamAmount < 3) {
         

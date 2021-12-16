@@ -5,10 +5,12 @@ ul{
     list-style: none;
 }
 .sx{
-    background-color: red;
     width: 200px;
     height: calc(100vh - 56px);
     padding-top: 5rem;
+}
+#{
+    background-color: rgba(26, 24, 24, 0.096);
 }
 #input-container{
     display: flex;
