@@ -19,9 +19,6 @@ const addNameToWaiting = () => {
         namesList.appendChild(listItem)
         // add remove button function to each item
         nameInput.value = ""
-        // } else {
-        //     console.log("working")
-        // }
     }
 }
 
@@ -52,15 +49,14 @@ const createLists = (listLength) => {
 
 const createWaitingList = () => {
     newDiv.appendChild(namesList)
-    newDiv.classList.add("hide", "col", "col-md-6", "remBtn")
+    newDiv.classList.add("hide", "col", "col-md-6", "col2")
     bigRow.appendChild(newDiv)
     namesList.classList.add("waiting-list")
 }
 
-const createBtn = () => {
+const createAddRemBtn = () => {
     const newAddBtn = document.createElement("button")
-    newAddBtn.classList.add("btn", "btn-primary")
-    namesList.appendChild(newAddBtn)
+    newAddBtn.classList.add("btn", "btn-primary", "mt-5")
     const attributeFunction = document.createAttribute('onclick')
     attributeFunction.value = `addRemaining()`
     const attributeId = document.createAttribute('id')
@@ -71,13 +67,21 @@ const createBtn = () => {
     namesList.appendChild(newAddBtn)
 }
 
-// How many names do we have ? DONE
-// How many teams to we want ? DONE
-// Check if it's odd.. Ask if we want even teams or not? checkbox NOT DONE 
-    
+const createResetBtn = () => {
+    const newResetBtn = document.createElement("button")
+    const inputDiv = document.getElementById("input-div")
+    newResetBtn.classList.add("btn", "btn-primary")
+    const attributeFunction = document.createAttribute('onclick')
+    attributeFunction.value = `resetApp()`
+    const attributeId = document.createAttribute('id')
+    attributeId.value = `reset-btn`
+    newResetBtn.setAttributeNode(attributeFunction)
+    newResetBtn.setAttributeNode(attributeId)
+    newResetBtn.innerText = "Try Again"
+    newDiv.appendChild(newResetBtn)
+}
     
 const generate = () => {
-    const checkEven = document.getElementById("even-option").value
     const listLength = waitingList.length
     const teamAmount = document.getElementById("number-input").value
     for (let i = 0; i < teamAmount; i++){
@@ -86,8 +90,17 @@ const generate = () => {
     if (waitingList.length === 0) {
         namesList.remove()
     } else {
-        createBtn()
+        createAddRemBtn()
     }
+    createResetBtn()
+}
+
+const resetApp = () => {
+
+}
+
+const addRemaining = () => {
+    
 }
 
 // ******** EVENT LISTENERS ********

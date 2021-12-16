@@ -1,15 +1,5 @@
 <!DOCTYPE html>
 <!--
-    WELCOME TO THE STRIVE TEAM GENERATOR!
-
-    In this app you will generate teams and assign the participants to them.
-    You will use the Bootstrap components for the elements of your app.
-
-    The features are the following:
-    - The user should be able to add a list of names, find a way to get the user input and fill a list with the new name.
-    - The user should be able to set the number of teams he wants, so that they will be generated. A team is just another list to be displayed.
-    - An "Assign" button will be required in order to launch the team generation functionality.
-    - Every time the user clicks on the "Assign" button, a random name is placed in a team and removed from the initial list.
     - Each team should be inside a "column" to be responsive.
     - [EXTRA] Create a button to remove a user from a team, and putting him back in the main list, waiting to be reassigned.
     - [EXTRA] Create a button to reset the state of the app.
@@ -32,60 +22,28 @@
     <title>Team Builder</title>
   </head>
   <body>
-    
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
       <div class="container-fluid">
           <div id="sz" class="row">
               <div class="sx col-6 d-flex justify-content-center">
                   <div id="input-container">
                       <div class="heading">
-                          <h1 class="zz">Team Builder</h1>
+                          <h1 class="my-3">Team Builder</h1>
                       </div>
-                      <div>
+                      <div id="input-div">
                         <div class="input-wrapper">
                             <label for="names">Enter Team Member Names</label>
-                            <div class="text-input">
+                            <div class="d-flex mb-5">
                               <input class="input" type="text" name="names" id="name-input" placeholder="Enter Name">
                               <button type="button" class="btn btn-primary" onclick="addNameToWaiting()">Add</button>
                             </div>
+                            <div class="d-flex justify-content-between mb-5">
                             <label for="teams">How many teams?</label>
                             <input class="input" type="number" name="teams" id="number-input" min="0" max="12" placeholder="1">
-                            <div class="text-input">
-                              <label for="even-option">Teams must be equal</label>
-                              <input type="checkbox" name="option-even" id="even-option" value="true">
                             </div>
                         </div>
-                        
-                        <button type="submit" class="zz btn btn-primary" onclick="generate()">Create!</button>
+                        <div class="d-flex justify-content-center">                        
+                        <button type="submit" class="btn btn-primary" onclick="generate()">Create Teams</button>
+                        </div>
                       </div>
                   </div>
               </div>

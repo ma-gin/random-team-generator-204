@@ -1,12 +1,15 @@
 input{
     display: block;
 }
+label{
+    margin-top: 1rem;
+}
 ul{
     list-style: none;
 }
 .sx{
     width: 200px;
-    height: calc(100vh - 56px);
+    height: 100vh;
     padding-top: 5rem;
 }
 #sz{
@@ -21,6 +24,10 @@ ul{
     background-color: white;
     justify-content: center;
     align-items: center;
+}
+#number-input{
+    max-width: 3rem;
+    border: none;
 }
 .text-input{
     display: flex;
@@ -39,4 +46,7 @@ ul{
 }
 .zz{
     margin: 1.125rem;
+}
+.col2{
+    padding: 4rem;
 }
