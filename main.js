@@ -41,7 +41,8 @@ const createOneList = () => {
     } 
     const newerDiv = document.createElement("div")
     newerDiv.appendChild(teamList)
-    inputContainer.appendChild(newerDiv)
+    teamList.classList.add("list-style")
+    newDiv.appendChild(newerDiv)
 }
 
 const createWaitingList = () => {

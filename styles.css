@@ -9,7 +9,7 @@ ul{
     height: calc(100vh - 56px);
     padding-top: 5rem;
 }
-#{
+#sz{
     background-color: rgba(26, 24, 24, 0.096);
 }
 #input-container{
@@ -30,4 +30,8 @@ ul{
 }
 .hide{
     display: none !important;
+}
+.list-style{
+    display: inline;
+    font-size: 3rem;
 }
