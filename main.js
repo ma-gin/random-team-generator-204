@@ -52,11 +52,23 @@ const createLists = (listLength) => {
 
 const createWaitingList = () => {
     newDiv.appendChild(namesList)
-    newDiv.classList.add("hide")
-    newDiv.classList.add("col")
-    newDiv.classList.add("col-md-6")
+    newDiv.classList.add("hide", "col", "col-md-6", "remBtn")
     bigRow.appendChild(newDiv)
     namesList.classList.add("waiting-list")
+}
+
+const createBtn = () => {
+    const newAddBtn = document.createElement("button")
+    newAddBtn.classList.add("btn", "btn-primary")
+    namesList.appendChild(newAddBtn)
+    const attributeFunction = document.createAttribute('onclick')
+    attributeFunction.value = `addRemaining()`
+    const attributeId = document.createAttribute('id')
+    attributeId.value = `add-remaining-btn`
+    newAddBtn.setAttributeNode(attributeFunction)
+    newAddBtn.setAttributeNode(attributeId)
+    newAddBtn.innerText = "Add Remaining"
+    namesList.appendChild(newAddBtn)
 }
 
 // How many names do we have ? DONE
@@ -73,8 +85,11 @@ const generate = () => {
     }
     if (waitingList.length === 0) {
         namesList.remove()
+    } else {
+        createBtn()
     }
 }
+
 // ******** EVENT LISTENERS ********
 
 nameInput.addEventListener("keyup", (event) => { 
