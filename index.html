@@ -79,9 +79,13 @@
                             </div>
                             <label for="teams">How many teams?</label>
                             <input class="input" type="number" name="teams" id="number-input" min="0" max="12" placeholder="1">
+                            <div class="text-input">
+                              <label for="even-option">Teams must be equal</label>
+                              <input type="checkbox" name="option-even" id="even-option" value="true">
+                            </div>
                         </div>
                         
-                        <button type="button" class="zz btn btn-primary" onclick="generate()">Create!</button>
+                        <button type="submit" class="zz btn btn-primary" onclick="generate()">Create!</button>
                       </div>
                   </div>
               </div>

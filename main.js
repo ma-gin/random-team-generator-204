@@ -18,25 +18,28 @@ const addName = () => {
     const listItem = document.createElement("li")
     listItem.innerText = nameInput.value
     namesList.appendChild(listItem)
+    // add remove button function to each item
     nameInput.value = ""
 }
 
-const createOneList = () => {
-    // console.log(listLength)
+const createLists = (listLength) => {
     const teamList = document.createElement("ul")
     const teamAmount = document.getElementById("number-input").value
-    console.log(teamAmount)
-    const runLoop = Math.floor(4 / teamAmount)// original array length hardcorded - problem with scope
+    const runLoop = Math.floor(listLength / teamAmount)
     console.log(runLoop)
     const newerDiv = document.createElement("div")
+    let checker = false;
     for (let i = 0; i < runLoop; i++) {
         const randomIndex = Math.floor(Math.random() * waitingList.length - 1)
-        const nameToAdd = waitingList.splice(randomIndex, 1)// change splice to method that wont mutate original array
-        console.log(nameToAdd[0])
+        const nameToAdd = waitingList.splice(randomIndex, 1)
+        // console.log(nameToAdd[0])
+        if (checker === false) {
+            const teamNumber = document.createElement("h4")
+            teamNumber.innerText = `Team ${i + 1}`
+            newerDiv.appendChild(teamNumber)
+            checker = true
+        }
         const newItem = document.createElement("li")
-        const teamNumber = document.createElement("h4")
-        teamNumber.innerText = `Team ${i + 1}`
-        newerDiv.appendChild(teamNumber)
         newItem.innerText = nameToAdd
         teamList.appendChild(newItem)
     } 
@@ -55,21 +58,22 @@ const createWaitingList = () => {
     namesList.classList.add("waiting-list")
 }
 
+// How many names do we have ? DONE
+// How many teams to we want ? DONE
+// Check if it's odd.. Ask if we want even teams or not? checkbox 
+// Add random name to team 1 x times, run loop x times.
+// Print team 1
+// Add random name to team 2 x times, run loop x times.
+    
+    
 const generate = () => {
+    const checkEven = document.getElementById("even-option").value
+    console.log(checkEven)
     const listLength = waitingList.length
     const teamAmount = document.getElementById("number-input").value
     for (let i = 0; i < teamAmount; i++){
-        createOneList()
+        createLists(listLength)
     }
-    // createList()
-
-    // if (teamAmount < 3) {
-        
-    // } else if (teamAmount < 7) {
-        
-    // } else {
-
-    // }
 }
 // ******** EVENT LISTENERS ********
 
