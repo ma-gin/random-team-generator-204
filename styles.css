@@ -28,14 +28,14 @@ ul{
 .waiting-list {
     text-align: center;
     padding: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     border: 2px solid black;
 }
 .hide{
     display: none !important;
 }
 .list-style{
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 .zz{
     margin: 1.125rem;
