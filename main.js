@@ -43,6 +43,7 @@ const createLists = (listLength) => {
         const waitingListItems = document.querySelectorAll(".waiting-list li")
         console.log(waitingListItems)
         waitingListItems[randomIndex].remove()
+        console.log(waitingList)
     } 
     newerDiv.appendChild(teamList)
     teamList.classList.add("list-style")
@@ -61,9 +62,6 @@ const createWaitingList = () => {
 // How many names do we have ? DONE
 // How many teams to we want ? DONE
 // Check if it's odd.. Ask if we want even teams or not? checkbox NOT DONE 
-// Add random name to team 1 x times, run loop x times.
-// Print team 1
-// Add random name to team 2 x times, run loop x times.
     
     
 const generate = () => {
@@ -72,6 +70,9 @@ const generate = () => {
     const teamAmount = document.getElementById("number-input").value
     for (let i = 0; i < teamAmount; i++){
         createLists(listLength)
+    }
+    if (waitingList.length === 0) {
+        namesList.remove()
     }
 }
 // ******** EVENT LISTENERS ********
