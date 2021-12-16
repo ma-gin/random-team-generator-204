@@ -1,0 +1,31 @@
+input{
+    display: block;
+}
+ul{
+    list-style: none;
+}
+.sx{
+    background-color: red;
+    width: 200px;
+    height: calc(100vh - 56px);
+    padding-top: 5rem;
+}
+#input-container{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    width: 60%;
+    max-height: 60vh;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+.text-input{
+    display: flex;
+}
+.waiting-list {
+    border: 2px solid black;
+}
+.hide{
+    display: none !important;
+}
