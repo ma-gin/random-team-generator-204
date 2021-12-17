@@ -3,7 +3,7 @@ const waitingList = []
 const listContainer = document.createElement("div")
 const namesList = document.createElement("ul")
 const inputContainer = document.getElementById("input-container")
-const bigRow = document.getElementById("sz")
+const bigRow = document.getElementById("hero")
 const newDiv = document.createElement("div")
 const nameInput = document.getElementById("name-input")
 
@@ -56,7 +56,7 @@ const createWaitingList = () => {
 
 const createAddRemBtn = () => {
     const newAddBtn = document.createElement("button")
-    newAddBtn.classList.add("btn", "btn-primary", "mt-5")
+    newAddBtn.classList.add("btn", "btn-warning", "mt-5")
     const attributeFunction = document.createAttribute('onclick')
     attributeFunction.value = `addRemaining()`
     const attributeId = document.createAttribute('id')
@@ -70,7 +70,7 @@ const createAddRemBtn = () => {
 const createResetBtn = () => {
     const newResetBtn = document.createElement("button")
     const inputDiv = document.getElementById("input-div")
-    newResetBtn.classList.add("btn", "btn-primary")
+    newResetBtn.classList.add("btn", "btn-warning")
     const attributeFunction = document.createAttribute('onclick')
     attributeFunction.value = `resetApp()`
     const attributeId = document.createAttribute('id')
@@ -84,15 +84,19 @@ const createResetBtn = () => {
 const generate = () => {
     const listLength = waitingList.length
     const teamAmount = document.getElementById("number-input").value
-    for (let i = 0; i < teamAmount; i++){
-        createLists(listLength)
-    }
-    if (waitingList.length === 0) {
-        namesList.remove()
+    if (teamAmount < listLength) {
+        for (let i = 0; i < teamAmount; i++){
+            createLists(listLength)
+        }
+        if (waitingList.length === 0) {
+            namesList.remove()
+        } else {
+            createAddRemBtn()
+        }
+        createResetBtn()
     } else {
-        createAddRemBtn()
+        alert("Add More Names.")
     }
-    createResetBtn()
 }
 
 const resetApp = () => {
@@ -100,7 +104,7 @@ const resetApp = () => {
 }
 
 const addRemaining = () => {
-    
+
 }
 
 // ******** EVENT LISTENERS ********

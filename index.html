@@ -23,18 +23,19 @@
   </head>
   <body>
       <div class="container-fluid">
-          <div id="sz" class="row">
-              <div class="sx col-6 d-flex justify-content-center">
+          <div id="hero" class="row">
+            <!-- <div class="d-inline align-middle"> -->
+              <div class="col1 col-6 d-flex justify-content-center">
                   <div id="input-container">
                       <div class="heading">
                           <h1 class="my-3">Team Builder</h1>
                       </div>
                       <div id="input-div">
                         <div class="input-wrapper">
-                            <label for="names">Enter Team Member Names</label>
+                            <label for="names">Add Names To List</label>
                             <div class="d-flex mb-5">
                               <input class="input" type="text" name="names" id="name-input" placeholder="Enter Name">
-                              <button type="button" class="btn btn-primary" onclick="addNameToWaiting()">Add</button>
+                              <button type="button" class="btn btn-warning" onclick="addNameToWaiting()">Add</button>
                             </div>
                             <div class="d-flex justify-content-between mb-5">
                             <label for="teams">How many teams?</label>
@@ -42,11 +43,12 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">                        
-                        <button type="submit" class="btn btn-primary" onclick="generate()">Create Teams</button>
+                        <button type="submit" class="btn btn-warning" onclick="generate()">Create Teams</button>
                         </div>
                       </div>
                   </div>
               </div>
+            <!-- </div> -->
           </div>
       </div>
 
