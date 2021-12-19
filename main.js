@@ -1,11 +1,12 @@
 // ******** DECLARATION OF VARIABLES ********
-const waitingList = []
+let waitingList = []
 const listContainer = document.createElement("div")
-const namesList = document.createElement("ul")
+let namesList = document.createElement("ul")
 const inputContainer = document.getElementById("input-container")
-const bigRow = document.getElementById("hero")
+const bigRow = document.getElementById("top-row")
 const newDiv = document.createElement("div")
 const nameInput = document.getElementById("name-input")
+const teamContainer = document.createElement("div")
 
 // ******** DECLARATION OF FUNCTIONS ********
 
@@ -27,9 +28,10 @@ const createLists = (listLength) => {
     const teamAmount = document.getElementById("number-input").value
     const runLoop = Math.floor(listLength / teamAmount)
     const newerDiv = document.createElement("div")
-    const teamNumber = document.createElement("h4")
-    teamNumber.innerText = "Team"
-    newerDiv.appendChild(teamNumber)
+    newerDiv.classList.add("team-item")
+    const teamHead = document.createElement("h4")
+    teamHead.innerText = "Team"
+    newerDiv.appendChild(teamHead)
     for (let i = 0; i < runLoop; i++) {
         const randomIndex = Math.floor(Math.random() * waitingList.length)
         console.log(randomIndex)
@@ -44,12 +46,12 @@ const createLists = (listLength) => {
     } 
     newerDiv.appendChild(teamList)
     teamList.classList.add("list-style")
-    newDiv.appendChild(newerDiv)
+    teamContainer.appendChild(newerDiv)
 }
 
 const createWaitingList = () => {
     newDiv.appendChild(namesList)
-    newDiv.classList.add("hide", "col", "col-md-6", "col2")
+    newDiv.classList.add("hide", "col", "col-md-6", "col2", "d-flex", "flex-column", "align-middle")
     bigRow.appendChild(newDiv)
     namesList.classList.add("waiting-list")
 }
@@ -67,24 +69,40 @@ const createAddRemBtn = () => {
     namesList.appendChild(newAddBtn)
 }
 
-const createResetBtn = () => {
+const createResortBtn = () => {
     const newResetBtn = document.createElement("button")
     const inputDiv = document.getElementById("input-div")
-    newResetBtn.classList.add("btn", "btn-warning")
+    newResetBtn.classList.add("btn", "btn-outline-warning")
     const attributeFunction = document.createAttribute('onclick')
-    attributeFunction.value = `resetApp()`
+    attributeFunction.value = `resortApp()`
     const attributeId = document.createAttribute('id')
-    attributeId.value = `reset-btn`
+    attributeId.value = `resort-btn`
     newResetBtn.setAttributeNode(attributeFunction)
     newResetBtn.setAttributeNode(attributeId)
     newResetBtn.innerText = "Try Again"
     newDiv.appendChild(newResetBtn)
 }
-    
+
+const createResetBtn = () => {
+    const resetBtn = document.createElement("button")
+    const btnWrapper = document.getElementById("btn-wrapper")
+    resetBtn.classList.add("btn", "btn-outline-warning")
+    const attributeFunction = document.createAttribute('onclick')
+    attributeFunction.value = `resetApp()`
+    const attributeId = document.createAttribute('id')
+    attributeId.value = `reset-btn`
+    resetBtn.setAttributeNode(attributeFunction)
+    resetBtn.setAttributeNode(attributeId)
+    resetBtn.innerText = "Reset"
+    btnWrapper.appendChild(resetBtn)
+}   
+
 const generate = () => {
+    newDiv.appendChild(teamContainer)
+    teamContainer.classList.add("d-flex", "justify-content-between")
     const listLength = waitingList.length
     const teamAmount = document.getElementById("number-input").value
-    if (teamAmount < listLength) {
+    if (teamAmount <= listLength) {
         for (let i = 0; i < teamAmount; i++){
             createLists(listLength)
         }
@@ -99,12 +117,27 @@ const generate = () => {
     }
 }
 
+const resortApp = () => {
+
+}
+
 const resetApp = () => {
+    waitingList = []
+    bigRow.removeChild(newDiv)
+    namesList = document.createElement("ul")
+    createWaitingList()
 
 }
 
 const addRemaining = () => {
-
+    for (let i = 0; i < waitingList.length; i++) {
+        const ulItems = document.querySelectorAll(".team-item ul")
+        // console.log(ulItems[i].childNode.length)
+        const randomIndex = Math.floor(Math.random() * ulItems.length)
+        const remItem = waitingList[i]
+        ulItems[randomIndex].innerHTML += remItem
+    }
+    document.querySelector(".waiting-list").innerHTML = ""
 }
 
 // ******** EVENT LISTENERS ********
@@ -120,6 +153,6 @@ nameInput.addEventListener("keyup", (event) => {
 // ******** INITIALIZATION ********
 
 listContainer.classList.add("hide")
-createWaitingList()
 inputContainer.appendChild(listContainer)
+createWaitingList()
 

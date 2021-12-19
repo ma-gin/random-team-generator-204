@@ -22,35 +22,27 @@
     <title>Team Builder</title>
   </head>
   <body>
-      <div class="container-fluid">
-          <div id="hero" class="row">
-            <!-- <div class="d-inline align-middle"> -->
-              <div class="col1 col-6 d-flex justify-content-center">
-                  <div id="input-container">
-                      <div class="heading">
-                          <h1 class="my-3">Team Builder</h1>
-                      </div>
-                      <div id="input-div">
-                        <div class="input-wrapper">
-                            <label for="names">Add Names To List</label>
-                            <div class="d-flex mb-5">
-                              <input class="input" type="text" name="names" id="name-input" placeholder="Enter Name">
-                              <button type="button" class="btn btn-warning" onclick="addNameToWaiting()">Add</button>
-                            </div>
-                            <div class="d-flex justify-content-between mb-5">
-                            <label for="teams">How many teams?</label>
-                            <input class="input" type="number" name="teams" id="number-input" min="0" max="12" placeholder="1">
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-center">                        
-                        <button type="submit" class="btn btn-warning" onclick="generate()">Create Teams</button>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-            <!-- </div> -->
+    <div class="row" id="top-row">
+      <div class="col-sm-12 col-lg-6 d-flex justify-content-center flex-column" id="input-container">
+        <div class="heading">
+            <h1 class="mb-4">Team Builder</h1>
+        </div>
+        <div>
+          <label for="names">Add Names To List</label>
+          <div class="d-flex mb-4">
+            <input class="input" type="text" name="names" id="name-input" placeholder="Enter Name">
+            <button type="button" class="btn btn-warning" onclick="addNameToWaiting()">Add</button>
           </div>
+          <div class="d-flex mb-4 number-wrapper">
+            <label for="teams" class="input-teams">How many teams?</label>
+            <input class="input" type="number" name="teams" id="number-input" min="0" max="12" placeholder="1">
+          </div>                     
+          <div id="btn-wrapper" class="mx-auto">
+            <button type="submit" class="btn btn-warning" onclick="generate()">Create Teams</button>
+          </div>
+        </div>
       </div>
+    </body>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
