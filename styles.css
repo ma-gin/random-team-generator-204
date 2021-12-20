@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Mukta:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lobster&display=swap');
 
 body{
-    background: white
+    background: white;
+    font-family: 'Lato', sans-serif;
 }
-.container-fluid{
-    font-family: 'Mukta', sans-serif;
-}
-h1{
+.font{
     font-family: 'Lobster', cursive;
 }
 input{
@@ -18,17 +16,12 @@ label{
 ul{
     list-style: none;
 }
-.col1{
-    padding: 5rem 0;
-}
 #input-container{
     display: flex;
     flex-direction: column;
     min-width: 300px;
     width: 60%;
     max-height: 60vh;
-    background-color: white;
-    justify-content: center;
     align-items: center;
 }
 .input-teams{
@@ -39,7 +32,11 @@ ul{
     border: none;
 }
 #btn-wrapper{
-    width: 85%;
+    width: 100%;
+}
+.create{
+    width: 100%;
+    margin: 0 auto;
 }
 .text-input{
     display: flex;
@@ -48,19 +45,19 @@ ul{
     align-items: center;
     justify-content: center;
 }
-.waiting-list {
-    text-align: center;
-    padding: 0.5rem;
-    font-size: 1.25rem;
+.waiting-list{
+    padding-left: 0;
+    max-height: 34vh;
+}
+.waiting-list li{
+    padding: 0.25rem;
+    border: 1px solid black;
 }
 .hide{
     display: none !important;
 }
 .list-style{
-    font-size: 1.5rem;
-}
-.col2{
-    padding: 4rem;
+    font-size: 1rem;
 }
 .team-item{
     color: rgb(61, 61, 61);
