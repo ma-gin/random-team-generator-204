@@ -46,6 +46,7 @@ ul{
     justify-content: center;
 }
 .waiting-list{
+    margin-top: 2rem;
     padding-left: 0;
     max-height: 34vh;
 }

@@ -133,11 +133,8 @@ const addRemaining = () => {
 
 // ******** EVENT LISTENERS ********
 
-nameInput.addEventListener("keyup", (event) => { 
-    if (event.keyCode === 13) {
-        event.preventDefault()
+nameInput.addEventListener("change", (event) => { 
         document.querySelector(".btn").click();
-    }
 })
 
 
