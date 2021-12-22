@@ -26,6 +26,7 @@ const addNameToWaiting = () => {
 
 const createLists = (listLength) => {
     const teamList = document.createElement("ul")
+    teamList.classList.add("no-col")
     const teamAmount = document.getElementById("number-input").value
     const runLoop = Math.floor(listLength / teamAmount)
     const newerDiv = document.createElement("div")

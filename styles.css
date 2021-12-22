@@ -14,7 +14,11 @@ label{
     margin-top: .5rem;
 }
 ul{
+    width: 100%;
     list-style: none;
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
 }
 #input-container{
     display: flex;
@@ -47,12 +51,10 @@ ul{
 }
 .waiting-list{
     margin-top: 2rem;
-    padding-left: 0;
     max-height: 34vh;
 }
 .waiting-list li{
-    padding: 0.25rem;
-    border: 1px solid black;
+    padding: 0.2rem;
 }
 .hide{
     display: none !important;
@@ -62,4 +64,25 @@ ul{
 }
 .team-item{
     color: rgb(61, 61, 61);
+}
+#list-container{
+    max-height: 50vh;
+    overflow: hidden;
+}
+#output-container{
+    flex-wrap: wrap;
+    display: flex;
+    max-width: 1400;
+    margin: 0 auto;
+    padding-top: 50px ;
+    justify-content: center;
+}
+.no-col{
+    width: auto;
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+}
+.add-btn{
+    margin-left: 5px;
 }
